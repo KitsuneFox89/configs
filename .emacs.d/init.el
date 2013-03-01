@@ -5,6 +5,7 @@
 (custom-set-variables '(inhibit-startup-screen t))
 
 (add-to-list 'load-path "~/.emacs.d/")
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -13,14 +14,28 @@
 ; Load color theme
 (load-theme 'zenburn t)
 
-
+(tool-bar-mode -1)
 (auto-compression-mode 1)
+
+; No tabs
+(setq-default indent-tabs-mode nil)
+
+; Set C-like indentation style
+( setq c-default-style "linux"
+       c-basic-offset 4 )
+
+; Enable highlighting for CUDA
+(autoload 'cuda-mode "cuda-mode.el")
+(add-to-list 'auto-mode-alist '("\\.cu'" . cuda-mode))
 
 ; Auto complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
 (ac-config-default)
 
+
+; Use C++ mode for *.h
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ; Clang C/C++ auto-complete
 (require 'auto-complete-clang-async)
