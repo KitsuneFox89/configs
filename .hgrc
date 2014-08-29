@@ -1,8 +1,0 @@
-[ui] 
-username = Paul Fox <fox@emphotonics.com>
-
-ssh= ssh -C
-
-[extensions]
-hgext.hgshelve=
-
